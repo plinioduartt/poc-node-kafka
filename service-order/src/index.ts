@@ -4,18 +4,20 @@ import ServerInitializer from "./initializers/server.initializer";
 import IProducerKafkaService from "./kafka/producer/producer.interface";
 import ProducerKafkaService from "./kafka/producer/producer.service";
 
+const topic: string | RegExp = 'ECOMMERCE_NEW_ORDER';
+
 void (async () => {
     await ServerInitializer.start();
 
     /**
      * Dependency Injection
      */
-    const producerKafkaService: IProducerKafkaService = ProducerKafkaService;
+    const producerKafkaService: IProducerKafkaService = new ProducerKafkaService();
     /**
      * End of Dependency Injection
      */
 
-    const topic: string | RegExp = 'ECOMMERCE_NEW_ORDER';
+    await producerKafkaService.open();
 
     setInterval(async () => {
         const messages: Message[] = [
@@ -30,4 +32,9 @@ void (async () => {
         ];
         await producerKafkaService.send(topic, messages);
     }, 5000);
+
+    /**
+     * Close connection with kafka producer
+     */
+    // await producerKafkaService.close();
 })();

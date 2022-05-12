@@ -37,4 +37,4 @@ class ProducerKafkaService extends KafkaService implements IProducerKafkaService
     }
 }
 
-export default new ProducerKafkaService();
+export default ProducerKafkaService;

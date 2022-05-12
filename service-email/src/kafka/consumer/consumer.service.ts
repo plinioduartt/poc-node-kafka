@@ -51,4 +51,4 @@ class ConsumerKafkaService extends KafkaService implements IConsumerKafkaService
     };
 }
 
-export default new ConsumerKafkaService();
+export default ConsumerKafkaService;
