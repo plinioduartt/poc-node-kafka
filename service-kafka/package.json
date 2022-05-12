@@ -1,13 +1,10 @@
 {
-  "name": "with-kafka",
+  "name": "service-kafka",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "topic": "ts-node ./src/topic.ts",
-    "producer": "ts-node ./src/producer.ts",
-    "consumer": "ts-node ./src/consumer.ts"
+    "start": "ts-node ./src/index.ts"
   },
   "keywords": [],
   "author": "",

@@ -1,1 +1,3 @@
-node_modules
+/service-kafka/node_modules
+/service-order/node_modules
+/service-email/node_modules
